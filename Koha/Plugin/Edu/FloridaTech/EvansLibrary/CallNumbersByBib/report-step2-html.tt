@@ -1,0 +1,33 @@
+[% INCLUDE 'doc-head-open.inc' %]
+ <title>Koha: Records by Biblionumber: List of Titles</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; Call Numbers by Bibilonumber</div>
+
+<div id="doc3">
+
+<table class="table table-striped">
+  <thead>
+    <tr> 
+      <th>Biblionumber</th>
+      <th>Title</th>  
+      <th>itemnumber, callnumber</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    [% FOREACH i IN items %]
+      <tr>
+        <td>[% i.biblionumber %]</td>
+        <td><a href="/cgi-bin/koha/catalogue/detail.pl?biblionumber=[% i.biblionumber %]">[% i.title %]</a></td> 
+        <td>[% i.itemnumbercallnumber %]</td>
+      </tr>
+    [% END %]
+  </tbody>
+</table> 
+
+[% INCLUDE 'intranet-bottom.inc' %]

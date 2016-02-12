@@ -1,0 +1,9 @@
+[%- USE EncodeUTF8 -%]
+[%- FILTER csv = replace('"', '\"') %][% END -%]
+biblionumber, title, itemnumber-callnumber
+[% FOREACH i IN items %]
+[%- '"' %][% i.biblionumber | csv %][% '",' -%]
+[%- '"' %][% i.title | csv | $EncodeUTF8 %][% '",' -%]
+[%- '"' %][% i.itemnumbercallnumber %][% '",' -%]
+
+[% END %]
